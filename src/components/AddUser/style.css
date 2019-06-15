@@ -1,0 +1,67 @@
+.modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.modal-container h2 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.form input {
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+.form .buttons-container {
+  display: flex;
+}
+.form .buttons-container button {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form .buttons-container button:nth-child(2n - 1) {
+  margin-right: 15px;
+  background: #e53935;
+}
+
+.form .buttons-container button:nth-child(2n - 1):hover {
+  background: #ef5350;
+}
+
+.form .buttons-container button:nth-child(2n) {
+  background: #43a047;
+}
+
+.form .buttons-container button:nth-child(2n):hover {
+  background: #66bb6a;
+}
