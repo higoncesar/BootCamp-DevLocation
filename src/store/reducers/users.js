@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   loading: false,
   data: [],
+  error: null,
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -10,7 +11,16 @@ export default function (state = INITIAL_STATE, action) {
     }
 
     case 'ADD_USER_SUCCESS': {
-      return { ...state, data: [...state.data, action.payload.data], loading: false };
+      return {
+        ...state,
+        data: [...state.data, action.payload.data],
+        loading: false,
+        error: null,
+      };
+    }
+
+    case 'ADD_USER_FAILURE': {
+      return { ...state, loading: false, error: action.payload.error };
     }
 
     case 'REMOVE_USER': {
