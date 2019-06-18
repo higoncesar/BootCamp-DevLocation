@@ -5,8 +5,8 @@ import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as UserActions from '../../store/actions/users';
-import * as ModalActions from '../../store/actions/modal';
+import { Creators as UsersActions } from '../../store/ducks/users';
+import { Creators as ModalActions } from '../../store/ducks/modal';
 
 import './style.css';
 
@@ -44,7 +44,12 @@ class AddUser extends Component {
     const { userInput } = this.state;
     const { modal, loading } = this.props;
     return (
-      <Modal isOpen={modal.isOpen} className="modal-container" overlayClassName="modal-overlay">
+      <Modal
+        isOpen={modal.isOpen}
+        appElement={document.getElementById('root')}
+        className="modal-container"
+        overlayClassName="modal-overlay"
+      >
         <h2>Adicionar novo usuário</h2>
         <form className="form" onSubmit={this.handleSubmit}>
           <input
@@ -74,7 +79,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     ...ModalActions,
-    ...UserActions,
+    ...UsersActions,
   },
   dispatch,
 );

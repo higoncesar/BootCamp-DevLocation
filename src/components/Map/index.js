@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as ModalActions from '../../store/actions/modal';
+import { Creators as ModalActions } from '../../store/ducks/modal';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -22,8 +22,8 @@ class Map extends Component {
     viewport: {
       width: window.innerWidth,
       height: window.innerHeight,
-      latitude: -23.5439948,
-      longitude: -46.6065452,
+      latitude: -19.923082,
+      longitude: -43.945211,
       zoom: 14,
     },
   };

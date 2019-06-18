@@ -1,9 +1,11 @@
 import { call, put, select } from 'redux-saga/effects';
+
 import { toast } from 'react-toastify';
+
 import api from '../../services/api';
 
-import { addUserSuccess, addUserFailure } from '../actions/users';
-import { closeModal } from '../actions/modal';
+import { Creators as UsersActions } from '../ducks/users';
+import { Creators as ModalActions } from '../ducks/modal';
 
 export function* addUser(action) {
   try {
@@ -11,6 +13,7 @@ export function* addUser(action) {
 
     const isDuplicated = yield select(state => state.users.data.find(user => user.id === data.id));
     if (isDuplicated) {
+      yield put(UsersActions.addUserFailure('Usuário Duplicado'));
       toast.warn('Usuário Duplicado');
     } else {
       const { latitude, longitude } = action.payload.cordinates;
@@ -24,14 +27,14 @@ export function* addUser(action) {
         longitude,
       };
 
-      yield put(addUserSuccess(userData));
+      yield put(UsersActions.addUserSuccess(userData));
 
       toast.success('Usuário adiconado com sucesso');
     }
   } catch (error) {
-    yield put(addUserFailure('Erro ao adicionar Usuário'));
+    yield put(UsersActions.addUserFailure('Erro ao adicionar Usuário'));
     toast.error('Erro ao adicionar Usuário');
   } finally {
-    yield put(closeModal());
+    yield put(ModalActions.closeModal());
   }
 }

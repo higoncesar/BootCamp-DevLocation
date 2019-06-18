@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import { Container } from './styles';
 
-import * as UserActions from '../../store/actions/users';
+import { Creators as UsersActions } from '../../store/ducks/users';
 
 const LeftSideBar = ({ users, removeUser }) => (
   <Container>
@@ -51,7 +51,7 @@ const mapStateToProps = state => ({
   users: state.users,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(UserActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(UsersActions, dispatch);
 
 export default connect(
   mapStateToProps,
