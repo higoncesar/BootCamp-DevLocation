@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MapGL, { Marker } from 'react-map-gl';
 import PropTypes from 'prop-types';
 
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -9,6 +10,11 @@ import { Creators as ModalActions } from '../../store/ducks/modal';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'mapbox-gl/dist/mapbox-gl.css';
+
+import {ipApi} from '../../services/api';
+import { call } from 'redux-saga/effects';
+
+const publicIp = require('public-ip');
 
 class Map extends Component {
   static propTypes = {
@@ -19,19 +25,25 @@ class Map extends Component {
   };
 
   state = {
-    viewport: {
-      width: window.innerWidth,
-      height: window.innerHeight,
-      latitude: -19.923082,
-      longitude: -43.945211,
-      zoom: 14,
-    },
+    viewport: {},
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const { _resize } = this;
     window.addEventListener('resize', _resize);
     _resize();
+
+    const IPV4 = await publicIp.v4();
+    const {data} = await ipApi.get(`/json/${IPV4}`);
+    this.setState({
+      viewport:{
+        width: window.innerWidth,
+        height: window.innerHeight,
+        latitude: data.lat,
+        longitude: data.lon,
+        zoom: 13,
+      }
+    });
   }
 
   componentWillUnmount() {

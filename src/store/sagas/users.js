@@ -2,7 +2,7 @@ import { call, put, select } from 'redux-saga/effects';
 
 import { toast } from 'react-toastify';
 
-import api from '../../services/api';
+import {api} from '../../services/api';
 
 import { Creators as UsersActions } from '../ducks/users';
 import { Creators as ModalActions } from '../ducks/modal';
