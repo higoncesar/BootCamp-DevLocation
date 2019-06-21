@@ -2,14 +2,14 @@ import { call, put, select } from 'redux-saga/effects';
 
 import { toast } from 'react-toastify';
 
-import {api} from '../../services/api';
+import { githubApi } from '../../services/api';
 
 import { Creators as UsersActions } from '../ducks/users';
 import { Creators as ModalActions } from '../ducks/modal';
 
 export function* addUser(action) {
   try {
-    const { data } = yield call(api.get, `/users/${action.payload.user}`);
+    const { data } = yield call(githubApi.get, `/users/${action.payload.user}`);
 
     const isDuplicated = yield select(state => state.users.data.find(user => user.id === data.id));
     if (isDuplicated) {
