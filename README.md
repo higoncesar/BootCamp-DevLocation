@@ -15,4 +15,4 @@ ReactJS, Styled Components, Prop Types, Redux, Saga, Axios, React Modal, React M
 ## Layout da Aplicação:
 
 ![Listagem](/assets/listagem.png)
-![Novo](/assets/novo.png)
+![Novo](/assets/novo.PNG)
