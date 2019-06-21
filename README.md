@@ -2,7 +2,7 @@
 
 ## OBJETIVO
 
-O usuário acessa a aplicação, onde téra um mapa que ao clicar em uma posição, a aplicação abre um formulário em um modal que contém um único campo, para entrada do username do Github, com isso é feito uma busca na API do Github ("http://api.github.com/users/[Nome Usuário]") que traz nome e avatar, que adicina o usuário no store do Redux, e ao ser adicionado ele aparece no mapa e na lista lateral. Sempre é retornado mensagem para o úsuario tanto de sucesso quanto erro, e também pode-se excluir usuário da listagem na sidebar.
+O usuário acessa a aplicação, onde téra um mapa que ao clicar em uma posição, a aplicação abre um formulário em um modal que contém um único campo, para entrada do username do Github, com isso é feito uma busca na API do Github que traz nome e avatar, que adicina o usuário no store do Redux, e ao ser adicionado ele aparece no mapa e na lista lateral. Sempre é retornado mensagem para o úsuario tanto de sucesso quanto erro, e também pode-se excluir usuário da listagem na sidebar.
 
 ## EU FUI ALÉM
 
